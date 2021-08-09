@@ -1,0 +1,38 @@
+<h3>Bucar por Región <small> {{ regionActiva | titlecase }} </small></h3>
+<hr>
+
+<h5> Seleccione la región </h5>
+
+<div class="row">
+    <div class="col">
+        <button *ngFor ="let region of regiones"
+                [class]="getClaseCSS( region )"
+                (click) = "activarRegion( region )"
+        >
+            {{region | titlecase}}
+        </button>
+    </div>
+
+</div>
+
+<div *ngIf="countries.length > 0" class="row mt-3 animate__animated animate__fadeIn">
+    <div class="col">
+        <app-pais-tabla [countries]="countries"></app-pais-tabla>
+    </div>
+</div>
+
+<!-- -------------------------- Notas Académicas --------------------------- 
+*
+*    [class.nombreDeClase] = "variable === otraVariable" 
+*     puedo condicionar la clase btn-primary dependiendo de
+*     la condicion que se encuentra entre comillas
+*
+*     Puedo hacerlo de otra manera con el [ngClass]= "{
+*                   'btn-primary': regionActiva === region,
+*                    'btn-outline-primary': regionActiva !== region
+*                }"
+*       
+*     En este caso resolvimos con un ternario dentro de un método
+*     detro de la clase de nuestro componente  
+-->
+
