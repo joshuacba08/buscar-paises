@@ -55,6 +55,7 @@ export class PorPaisComponent {
   }
 
   buscarSugerido( termino: string ){
+    this.mostrarSugerencia = false;
     this.search( termino );
     
 
